@@ -29,7 +29,7 @@ RSpec.describe Contestant, type: :feature do
       it 'shows a list of projects for each contestant' do
         
         visit "/contestants"
-
+save_and_open_page
         expect(page).to have_content("Jay McCarroll")
         expect(page).to have_content("News Chic")
         expect(page).to have_content("Gretchen Jones")
