@@ -7,4 +7,8 @@ class Project < ApplicationRecord
   def contestant_count
     contestants.count
   end
+
+  def avg_contestant_exp 
+    contestants.pluck(:years_of_experience).sum/contestant_count.to_f 
+  end
 end

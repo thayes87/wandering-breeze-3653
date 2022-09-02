@@ -19,15 +19,15 @@ RSpec.describe Project, type: :feature do
 
         visit "/projects/#{@news_chic.id}"
 
-          expect(page).to have_content("News Chic")
-          expect(page).to have_content("Newspaper")
+          expect(page).to have_content("Name: News Chic")
+          expect(page).to have_content("Material: Newspaper")
       end
       
       it 'also show the theme of the challenge that the project belongs to' do
         
         visit "/projects/#{@news_chic.id}"
 
-        expect(page).to have_content("Recycled Material")
+        expect(page).to have_content("Challenge Theme: Recycled Material")
       end
       
       it 'shows a count of the number of contestants on this project' do
@@ -35,6 +35,13 @@ RSpec.describe Project, type: :feature do
         visit "/projects/#{@news_chic.id}"
 
         expect(page).to have_content("Number of Contestants: 2")
+      end
+
+      it 'shows the average years of experience for the contestants that worked on that project' do
+
+        visit "/projects/#{@news_chic.id}"
+save_and_open_page
+        expect(page).to have_content("Average Contestant Experience: 12.5 years")
       end
     end
   end
